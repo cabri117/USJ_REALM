@@ -46,6 +46,9 @@ public class MainActivity extends Connect {
     }
 
     public void delete(View view) {
+        Intent intent = new Intent(this, Delete.class);
+        // intent.putExtra("connection",(Serializable) realm);
+        startActivity(intent);
     }
 
 
