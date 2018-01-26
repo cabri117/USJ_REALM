@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".Listar">
         </activity>
+        <activity android:name=".Update">
+        </activity>
     </application>
 
 </manifest>
