@@ -21,14 +21,15 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name=".MainActivity"></activity>
-
-        <activity android:name=".Add"></activity>
-
-        <activity android:name=".Listar"></activity>
-
-
+        <activity android:name=".Add">
+        </activity>
+        <activity android:name=".Listar">
+        </activity>
+        <activity android:name=".Update">
+      </activity>
+        <activity android:name=".Delete">
+        </activity>
     </application>
 
 </manifest>

@@ -17,7 +17,7 @@ public class Person extends RealmObject {
     // All fields are by default persisted.
     private String name;
     private int age;
-    //@PrimaryKey
+    @PrimaryKey
     private long id;
 
     // Let your IDE generate getters and setters for you!
