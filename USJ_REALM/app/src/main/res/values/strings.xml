@@ -85,5 +85,7 @@
     <string name="title_activity_connect">Connect</string>
     <string name="age">edad</string>
     <string name="Listado">Listado</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="id">Id</string>
 
 </resources>
