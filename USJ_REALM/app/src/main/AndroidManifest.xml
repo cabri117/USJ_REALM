@@ -21,6 +21,8 @@
         <activity android:name=".Listar">
         </activity>
         <activity android:name=".Update">
+      </activity>
+        <activity android:name=".Delete">
         </activity>
     </application>
 
