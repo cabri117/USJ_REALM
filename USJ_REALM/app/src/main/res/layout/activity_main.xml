@@ -39,7 +39,33 @@
             android:layout_height="wrap_content"
             android:onClick="delete"
             android:text="delete" />
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addPet"
+            android:text="Add" />
 
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="listarPet"
+            android:text="list" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="updatePet"
+            android:text="update" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="deletePet"
+            android:text="delete" />
         <TextView
             android:gravity="center_horizontal"
             android:text="@string/status_output"

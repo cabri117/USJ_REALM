@@ -1,13 +1,14 @@
-package com.example.hawk.usj_realm;
+package com.example.hawk.usj_realm.realm.person;
 
 /**
  * Created by hawk on 1/26/18.
  */
 
 
+import com.example.hawk.usj_realm.realm.pet.Pet;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
-import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
 
 // Your model just have to extend RealmObject.
@@ -15,10 +16,12 @@ import io.realm.annotations.PrimaryKey;
 public class Person extends RealmObject {
 
     // All fields are by default persisted.
-    private String name;
-    private int age;
     @PrimaryKey
     private long id;
+    private String name;
+    private int age;
+
+    private RealmList<Pet> pets = null;
 
     // Let your IDE generate getters and setters for you!
     // Or if you like you can even have public fields and no accessors! See Dog.java and Cat.java
@@ -43,6 +46,14 @@ public class Person extends RealmObject {
         }
 
         this.age = n;
+    }
+
+    public RealmList<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(RealmList<Pet> pets) {
+        this.pets = pets;
     }
 
     public long getId() {

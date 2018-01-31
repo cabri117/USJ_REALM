@@ -19,13 +19,21 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Add">
+        <activity android:name=".realm.person.Add">
         </activity>
-        <activity android:name=".Listar">
+        <activity android:name=".realm.person.Listar">
         </activity>
-        <activity android:name=".Update">
+        <activity android:name=".realm.person.Update">
       </activity>
-        <activity android:name=".Delete">
+        <activity android:name=".realm.person.Delete">
+        </activity>
+        <activity android:name=".realm.pet.Add">
+        </activity>
+        <activity android:name=".realm.pet.Listar">
+        </activity>
+        <activity android:name=".realm.pet.Update">
+        </activity>
+        <activity android:name=".realm.pet.Delete">
         </activity>
     </application>
 

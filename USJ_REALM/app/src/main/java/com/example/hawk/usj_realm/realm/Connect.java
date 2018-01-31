@@ -1,4 +1,4 @@
-package com.example.hawk.usj_realm;
+package com.example.hawk.usj_realm.realm;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,7 @@ import io.realm.Realm;
  */
 
 public class Connect extends AppCompatActivity {
-    Realm realm;
+    protected Realm realm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,9 +1,13 @@
-package com.example.hawk.usj_realm;
+package com.example.hawk.usj_realm.realm.pet;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.hawk.usj_realm.R;
+import com.example.hawk.usj_realm.realm.Connect;
+import com.example.hawk.usj_realm.realm.person.Person;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -36,17 +40,17 @@ public class Delete  extends Connect {
 
                 @Override
                 public void execute(Realm realm) {
-                    // Add a person
+                    // Delete a pet
 
 
-                    RealmResults<Person> rows= realm.where(Person.class).equalTo("name", etxt_name.getText().toString()).findAll();;
+                    RealmResults<Pet> rows= realm.where(Pet.class).equalTo("name", etxt_name.getText().toString()).findAll();;
 
                     if(rows.isEmpty()){
                         Delete.this.runOnUiThread(new Runnable() {
 
                             @Override
                             public void run() {
-                                Toast.makeText(Delete.this, "No se encontro usuario",
+                                Toast.makeText(Delete.this, "No se encontro mascota",
                                         Toast.LENGTH_LONG).show();
                             }
                         });
@@ -59,11 +63,11 @@ public class Delete  extends Connect {
                 }
             });
 
-            Toast.makeText(this, "Usuario borrado",
+            Toast.makeText(this, "Mascota borrada",
                     Toast.LENGTH_LONG).show();
 
         }catch (Exception e){
-            Toast.makeText(this, "No se pudo borrar usuario",
+            Toast.makeText(this, "No se pudo borrar mascota",
                     Toast.LENGTH_LONG).show();
         }
     }

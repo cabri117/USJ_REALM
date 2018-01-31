@@ -17,7 +17,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/etxt_name"
+                android:id="@+id/etxt_person"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -27,9 +27,14 @@
                 android:hint="@string/name"
                 android:nextFocusDown="@+id/etxt_dob"
                 android:singleLine="true" />
-
             <EditText
-                android:id="@+id/etxt_age"
+                android:id="@+id/etxt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/age"
+                android:singleLine="true" />
+            <EditText
+                android:id="@+id/etxt_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/age"

@@ -1,13 +1,15 @@
-package com.example.hawk.usj_realm;
+package com.example.hawk.usj_realm.realm.pet;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.hawk.usj_realm.R;
+import com.example.hawk.usj_realm.realm.Connect;
+
 import java.util.ListIterator;
 
 import io.realm.Realm;
-import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 /**
@@ -16,20 +18,20 @@ import io.realm.RealmResults;
 
 public class Update extends Connect {
 
-    private EditText etxt_id;
     private EditText etxt_name;
-    private EditText etxt_age;
+    private EditText etxt_name_new;
+    private EditText etxt_owner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.update);
+        setContentView(R.layout.update_pet);
 
         //Intent i = getIntent();
         //realm = (Realm)i.getSerializableExtra("connection");
-        etxt_id = findViewById(R.id.etxt_id);
         etxt_name = findViewById(R.id.etxt_name);
-        etxt_age = findViewById(R.id.etxt_age);
+        etxt_name_new = findViewById(R.id.etxt_name_new);
+        etxt_owner = findViewById(R.id.etxt_owner);
 
     }
 
@@ -39,23 +41,17 @@ public class Update extends Connect {
             @Override
             public void execute(Realm realm) {
                 // Update a person
-
-                RealmResults<Person> results = realm.where(Person.class).findAll();
+                RealmResults<Pet> results = realm.where(Pet.class).findAll();
                 ListIterator li=results.listIterator();
-
-                Person per=null;
-                Long lg = null;
+                Pet pet = null;
                 while(li.hasNext()) {
-                    per=(Person)li.next();
+                    pet = (Pet) li.next();
+                    if (pet.getOwner().getName().equalsIgnoreCase(etxt_owner.getText().toString()) &&
+                            pet.getName().equalsIgnoreCase(etxt_name.getText().toString())) {
+                        // Found the Pet
+                        pet.setName(etxt_name_new.getText().toString());
 
-                    if (per.getId() == lg.valueOf(etxt_id.getText().toString())) {
-                        // Found the Persons
-                        per.setName(etxt_name.getText().toString());
-                        per.setAge(etxt_age.getText().toString());
                     }
-//                    status="Id:"+per.getId()+";"+"Nombre:"+per.getName()+"; "+ "Edad:"+per.getAge()+"\n";
-//                    showStatus(status);
-                    //status = li."\nSize of result set: " + results.toString();
                 }
 
             }
@@ -64,7 +60,8 @@ public class Update extends Connect {
 
     public void limpiar(View view) {
         etxt_name.setText("");
-        etxt_age.setText("");
+        etxt_name_new.setText("");
+        etxt_owner.setText("");
 
     }
 }

@@ -1,4 +1,4 @@
-package com.example.hawk.usj_realm;
+package com.example.hawk.usj_realm.realm.person;
 
 /**
  * Created by hawk on 1/26/18.
@@ -12,6 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+
+import com.example.hawk.usj_realm.R;
+import com.example.hawk.usj_realm.realm.Connect;
 
 import io.realm.Realm;
 
@@ -40,8 +43,8 @@ public class Add extends Connect {
             @Override
             public void execute(Realm realm) {
                 // Add a person
-                Person person = realm.createObject(Person.class);
-                person.setId((int)(Math.random()*1000)+1);
+                int pk = (int)(Math.random()*1000)+1;
+                Person person = realm.createObject(Person.class, pk);
                 person.setName(etxt_name.getText().toString());
                 person.setAge(etxt_age.getText().toString());
 
