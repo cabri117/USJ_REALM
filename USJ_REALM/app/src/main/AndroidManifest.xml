@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hawk.usj_realm">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,35 +19,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".person.Add">
+        <activity android:name=".Add">
         </activity>
-        <activity android:name=".person.Listar">
+        <activity android:name=".Listar">
         </activity>
-        <activity android:name=".person.Update">
+        <activity android:name=".Update">
+      </activity>
+        <activity android:name=".Delete">
         </activity>
-        <activity android:name=".person.Delete">
-        </activity>
-
-        <activity android:name=".pet.AddPet_">
-        </activity>
-        <activity android:name=".pet.ListarPet">
-        </activity>
-        <activity android:name=".pet.UpdatePet_">
-        </activity>
-        <activity android:name=".pet.DeletePet_">
-        </activity>
-
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
-        </provider>
     </application>
-
-
 
 </manifest>
