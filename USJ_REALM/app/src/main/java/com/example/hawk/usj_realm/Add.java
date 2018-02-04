@@ -9,9 +9,12 @@ package com.example.hawk.usj_realm;
 import android.os.Bundle;
 
 
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+
+import java.util.ArrayList;
 
 import io.realm.Realm;
 
@@ -34,16 +37,35 @@ public class Add extends Connect {
 
     }
 
+    Integer getPK() {
+        return (int) (Math.random() * 1000) + 1;
+    }
+
     public void nuevo(View view) {
 
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
                 // Add a person
-                Person person = realm.createObject(Person.class);
-                person.setId((int)(Math.random()*1000)+1);
+//                int pk = (int) (Math.random() * 1000) + 1;
+                Person person = realm.createObject(Person.class, getPK());
                 person.setName(etxt_name.getText().toString());
                 person.setAge(etxt_age.getText().toString());
+//                Mascota pet1 = realm.createObject(Mascota.class, getPK());
+//                pet1.setName("Prueba");
+//                pet1.setAge("5");
+//                pet1.setType("Perro");
+//                Mascota pet2 = realm.createObject(Mascota.class, getPK());
+//                pet2.setName("Prueba");
+//                pet2.setAge("3");
+//                pet2.setType("Gato");
+//                person.getMascotas().add(pet1);
+//                person.getMascotas().add(pet2);
+//
+//
+//                Log.d("Cantidad de Mascotas: ", Integer.toString(person.getMascotas().size()));
+//
+//                Log.d("Mascota: ", "");
 
             }
         });

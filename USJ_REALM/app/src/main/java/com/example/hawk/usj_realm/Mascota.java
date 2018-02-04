@@ -1,30 +1,24 @@
 package com.example.hawk.usj_realm;
 
 /**
- * Created by hawk on 1/26/18.
+ * Created by mikearias on 2/4/18.
  */
-
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
-import io.realm.RealmResults;
 import io.realm.annotations.Ignore;
-import io.realm.annotations.LinkingObjects;
 import io.realm.annotations.PrimaryKey;
 
 // Your model just have to extend RealmObject.
 // This will inherit an annotation which produces proxy getters and setters for all fields.
-public class Person extends RealmObject {
+public class Mascota extends RealmObject {
 
     // All fields are by default persisted.
     private String name;
+    private String type;
     private int age;
     @PrimaryKey
     private long id;
-    private RealmList<Mascota> mascotas;
 
     // Let your IDE generate getters and setters for you!
     // Or if you like you can even have public fields and no accessors! See Dog.java and Cat.java
@@ -35,6 +29,10 @@ public class Person extends RealmObject {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getType() { return type; }
+
+    public void setType(String type) { this.type = type; }
 
     int getAge() {
         return age;
@@ -59,11 +57,4 @@ public class Person extends RealmObject {
         this.id = id;
     }
 
-    public RealmList<Mascota> getMascotas() {
-        return mascotas;
-    }
-
-    public void setMascotas(RealmList<Mascota> mascotas) {
-        this.mascotas = mascotas;
-    }
 }
