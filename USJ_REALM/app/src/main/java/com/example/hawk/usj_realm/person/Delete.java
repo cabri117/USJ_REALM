@@ -1,13 +1,12 @@
-package com.example.hawk.usj_realm.realm.pet;
+package com.example.hawk.usj_realm.person;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.hawk.usj_realm.Connect;
 import com.example.hawk.usj_realm.R;
-import com.example.hawk.usj_realm.realm.Connect;
-import com.example.hawk.usj_realm.realm.person.Person;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -24,50 +23,35 @@ public class Delete  extends Connect {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.delete);
-
-        //Intent i = getIntent();
-        //realm = (Realm)i.getSerializableExtra("connection");
         etxt_name = findViewById(R.id.etxt_name);
-
     }
 
-    public void nuevo(View view) {
-
+    public void delete(View view) {
         try{
-
-
             realm.executeTransaction(new Realm.Transaction() {
 
                 @Override
                 public void execute(Realm realm) {
-                    // Delete a pet
-
-
-                    RealmResults<Pet> rows= realm.where(Pet.class).equalTo("name", etxt_name.getText().toString()).findAll();;
-
+                    RealmResults<Person> rows = realm.where(Person.class).equalTo("name", etxt_name.getText().toString()).findAll();;
                     if(rows.isEmpty()){
                         Delete.this.runOnUiThread(new Runnable() {
 
                             @Override
                             public void run() {
-                                Toast.makeText(Delete.this, "No se encontro mascota",
+                                Toast.makeText(Delete.this, "No se encontro usuario",
                                         Toast.LENGTH_LONG).show();
                             }
                         });
-
                     }else{
                         rows.deleteAllFromRealm();
                         etxt_name.setText("");
                     }
-
                 }
             });
-
-            Toast.makeText(this, "Mascota borrada",
+            Toast.makeText(this, "Usuario borrado",
                     Toast.LENGTH_LONG).show();
-
         }catch (Exception e){
-            Toast.makeText(this, "No se pudo borrar mascota",
+            Toast.makeText(this, "No se pudo borrar usuario",
                     Toast.LENGTH_LONG).show();
         }
     }

@@ -1,11 +1,11 @@
-package com.example.hawk.usj_realm.realm.person;
+package com.example.hawk.usj_realm.person;
 
 /**
  * Created by hawk on 1/26/18.
  */
 
 
-import com.example.hawk.usj_realm.realm.pet.Pet;
+import com.example.hawk.usj_realm.pet.Pet;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
@@ -15,16 +15,13 @@ import io.realm.annotations.PrimaryKey;
 // This will inherit an annotation which produces proxy getters and setters for all fields.
 public class Person extends RealmObject {
 
-    // All fields are by default persisted.
     @PrimaryKey
     private long id;
-    private String name;
+    private String name, foto;
     private int age;
 
     private RealmList<Pet> pets = null;
 
-    // Let your IDE generate getters and setters for you!
-    // Or if you like you can even have public fields and no accessors! See Dog.java and Cat.java
     public String getName() {
         return name;
     }
@@ -38,11 +35,11 @@ public class Person extends RealmObject {
     }
 
     void setAge(String age) {
-        int n=0;
-        try{
-            n=Integer.parseInt(age);
-        }catch(Exception e){
-            n=0;
+        int n = 0;
+        try {
+            n = Integer.parseInt(age);
+        } catch (Exception e) {
+            n = 0;
         }
 
         this.age = n;
@@ -64,4 +61,11 @@ public class Person extends RealmObject {
         this.id = id;
     }
 
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
 }

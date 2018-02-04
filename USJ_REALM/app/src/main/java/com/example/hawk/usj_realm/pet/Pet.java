@@ -1,13 +1,9 @@
-package com.example.hawk.usj_realm.realm.pet;
+package com.example.hawk.usj_realm.pet;
 
-import com.example.hawk.usj_realm.realm.person.Person;
+import com.example.hawk.usj_realm.person.Person;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
-
-/**
- * Created by Anselm on 31/1/18.
- */
 
 public class Pet extends RealmObject {
 

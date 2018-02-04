@@ -1,4 +1,4 @@
-package com.example.hawk.usj_realm.realm;
+package com.example.hawk.usj_realm;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

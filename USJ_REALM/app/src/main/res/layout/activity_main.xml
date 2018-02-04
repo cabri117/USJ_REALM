@@ -44,28 +44,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="addPet"
-            android:text="Add" />
+            android:text="Add Pet" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="listarPet"
-            android:text="list" />
+            android:text="list Pet" />
 
         <Button
             android:id="@+id/button8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="updatePet"
-            android:text="update" />
+            android:text="update Pet" />
 
         <Button
             android:id="@+id/button9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="deletePet"
-            android:text="delete" />
+            android:text="delete Pet" />
         <TextView
             android:gravity="center_horizontal"
             android:text="@string/status_output"
