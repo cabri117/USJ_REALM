@@ -1,4 +1,4 @@
-package com.example.hawk.usj_realm;
+package com.example.hawk.usj_realm.person;
 
 /**
  * Created by hawk on 1/26/18.
@@ -8,17 +8,15 @@ package com.example.hawk.usj_realm;
 import android.os.Bundle;
 
 
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.example.hawk.usj_realm.Connect;
+import com.example.hawk.usj_realm.R;
+
 import java.util.ListIterator;
 
-import io.realm.Realm;
 import io.realm.RealmResults;
-
-//import com.example.david.realm301.R;
 
 public class Listar extends Connect {
 

@@ -1,13 +1,15 @@
-package com.example.hawk.usj_realm;
+package com.example.hawk.usj_realm.person;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.hawk.usj_realm.Connect;
+import com.example.hawk.usj_realm.R;
+
 import java.util.ListIterator;
 
 import io.realm.Realm;
-import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 /**
@@ -38,7 +40,7 @@ public class Update extends Connect {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                // Update a person
+                // UpdatePet a person
 
                 RealmResults<Person> results = realm.where(Person.class).findAll();
                 ListIterator li=results.listIterator();

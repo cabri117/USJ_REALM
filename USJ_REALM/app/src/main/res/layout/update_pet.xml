@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".person.Delete">
+    tools:context=".pet.UpdatePet">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -17,15 +17,29 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/etxt_name"
+                android:id="@+id/etOwnerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:ems="10"
-                android:hint="@string/name"
+                android:hint="Owner"
                 android:nextFocusDown="@+id/etxt_dob"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/etPetName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pet Name"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/etPetNewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pet new name"
                 android:singleLine="true" />
 
             <LinearLayout
@@ -34,20 +48,18 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button_reset"
+                    android:id="@+id/btnReset"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="limpiar"
-                    android:text="@string/reset" />
+                    android:text="Clean" />
 
                 <Button
-                    android:id="@+id/button_delete"
+                    android:id="@+id/btnUpdatePet"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="delete"
-                    android:text="Delete" />
+                    android:text="Update Pet" />
             </LinearLayout>
         </LinearLayout>
 
