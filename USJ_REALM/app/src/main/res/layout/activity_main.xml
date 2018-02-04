@@ -27,26 +27,12 @@
             android:text="list" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonPetinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="update"
-            android:text="update" />
+            android:onClick="getPetInfo"
+            android:text="Pet Info" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="delete"
-            android:text="delete" />
-
-        <TextView
-            android:gravity="center_horizontal"
-            android:text="@string/status_output"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
         <LinearLayout
             android:id="@+id/container"
             android:layout_width="match_parent"

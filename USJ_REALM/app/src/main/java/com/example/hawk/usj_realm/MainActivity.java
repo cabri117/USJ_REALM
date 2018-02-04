@@ -19,37 +19,27 @@ public class MainActivity extends Connect {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         // Create the Realm instance
         Realm.init(this);
         realm = Realm.getDefaultInstance();
 
-
     }
 
-
-
-
     public void add(View view) {
-        Intent intent = new Intent(this, Add.class);
+        Intent intent = new Intent(this, AddPersonActivity.class);
         // intent.putExtra("connection",(Serializable) realm);
         startActivity(intent);
     }
 
     public void listar(View view) {
-        Intent intent = new Intent(this, Listar.class);
+        Intent intent = new Intent(this, PersonListActivity.class);
         // intent.putExtra("connection",(Serializable) realm);
         startActivity(intent);
     }
 
-    public void update(View view) {
-    }
-
-    public void delete(View view) {
-        Intent intent = new Intent(this, Delete.class);
+    public void getPetInfo(View view) {
+        Intent intent = new Intent(this, PetInfoActivity.class);
         // intent.putExtra("connection",(Serializable) realm);
         startActivity(intent);
     }
-
-
 }
