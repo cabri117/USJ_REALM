@@ -15,7 +15,7 @@ import io.realm.annotations.PrimaryKey;
 public class Person extends RealmObject {
 
     // All fields are by default persisted.
-    private String name;
+    private String name, foto;
     private int age;
     @PrimaryKey
     private long id;
@@ -28,6 +28,14 @@ public class Person extends RealmObject {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     int getAge() {
