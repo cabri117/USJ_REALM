@@ -24,6 +24,7 @@ public class MainActivity extends Connect {
         Realm.init(this);
         realm = Realm.getDefaultInstance();
 
+        DataParser.getJson();
 
     }
 
