@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Realm. Ejemplo Demo 1</string>
+    <string name="app_name">Realm Demo </string>
     <string name="status_output">Contenido...\n</string>
     <string name="title_activity_add">Add</string>
     <string name="name">NOmbre</string>
@@ -85,5 +85,8 @@
     <string name="title_activity_connect">Connect</string>
     <string name="age">edad</string>
     <string name="Listado">Listado</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

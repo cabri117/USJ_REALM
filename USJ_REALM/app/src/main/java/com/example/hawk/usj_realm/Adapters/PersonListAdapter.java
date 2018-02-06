@@ -32,8 +32,7 @@ public class PersonListAdapter extends ArrayAdapter<Person> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.personpet_cell, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.textView3);
         textView.setText(values.get(position).getName());
