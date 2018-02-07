@@ -35,7 +35,6 @@ public class Add extends Connect {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add);
-
         etxt_name = findViewById(R.id.etxt_name);
         etxt_age = findViewById(R.id.etxt_age);
         nameFoto = etxt_name.getText().toString() + etxt_age.getText().toString();
@@ -46,6 +45,7 @@ public class Add extends Connect {
     public void hacerFoto(View v) {
         Intent intento1 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File foto = new File(getExternalFilesDir(null), nameFoto);
+        //mCurrentPhotoPath = "file:" + foto.getAbsolutePath();
         Uri photoURI = FileProvider.getUriForFile(this,
                 BuildConfig.APPLICATION_ID + ".provider", foto);
         intento1.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -54,22 +54,24 @@ public class Add extends Connect {
     }
 
     public void nuevo(View view) {
+
         realm.executeTransaction(new Realm.Transaction() {
-                @Override
-                public void execute(Realm realm) {
-                    Number currentIdNum = realm.where(Person.class).max("id");
+            @Override
+            public void execute(Realm realm) {
+                // Add a person
+                Number currentIdNum = realm.where(Person.class).max("id");
                 int pk = currentIdNum == null ? 1 : currentIdNum.intValue() + 1;
                 Person person = realm.createObject(Person.class, pk);
                 person.setName(etxt_name.getText().toString());
                 person.setAge(etxt_age.getText().toString());
                 person.setFoto(nameFoto);
-                }
-            });
+            }
+        });
     }
 
     public void limpiar(View view) {
         etxt_name.setText("");
         etxt_age.setText("");
-        nameFoto = "";
+
     }
 }
