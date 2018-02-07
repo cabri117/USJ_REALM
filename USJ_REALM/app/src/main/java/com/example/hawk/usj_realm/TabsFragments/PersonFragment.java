@@ -1,24 +1,20 @@
 package com.example.hawk.usj_realm.TabsFragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.example.hawk.usj_realm.Adapters.PersonListAdapter;
+import com.example.hawk.usj_realm.Adapters.RecyclerViewPersonAdapter;
 import com.example.hawk.usj_realm.AddPersonActivity;
-import com.example.hawk.usj_realm.Connect;
 import com.example.hawk.usj_realm.Helpers.ObjectWrapperForBinder;
-import com.example.hawk.usj_realm.MainActivity;
 import com.example.hawk.usj_realm.Models.Person;
-import com.example.hawk.usj_realm.PersonListActivity;
 import com.example.hawk.usj_realm.R;
 
 import java.util.ArrayList;
@@ -26,6 +22,11 @@ import java.util.ArrayList;
 import io.realm.Realm;
 
 public class PersonFragment extends Fragment {
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private static String LOG_TAG = "CardViewActivity";
 
     ListView listView;
     ArrayList<Person> list;
@@ -41,26 +42,41 @@ public class PersonFragment extends Fragment {
         Realm.init(view.getContext());
         realm = Realm.getDefaultInstance();
 
-        listView = (ListView) view.findViewById(R.id.petList);
+        list = new ArrayList(realm.where(Person.class).findAll());
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
-                Intent intent = new Intent(view.getContext(), AddPersonActivity.class);
-                final Bundle bundle = new Bundle();
-                bundle.putBinder("person", new ObjectWrapperForBinder(list.get(position)));
-                startActivity(new Intent(view.getContext(), AddPersonActivity.class).putExtras(bundle));
-            }
-        });
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_viewPerson);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(view.getContext());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new RecyclerViewPersonAdapter(list);
+        mRecyclerView.setAdapter(mAdapter);
+
+        // Code to Add an item with default animation
+        //((MyRecyclerViewAdapter) mAdapter).addItem(obj, index);
+
+        // Code to remove an item with default animation
+        //((MyRecyclerViewAdapter) mAdapter).deleteItem(index);
+
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        ((RecyclerViewPersonAdapter) mAdapter).setOnItemClickListener(new RecyclerViewPersonAdapter.MyClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Intent intent = new Intent(v.getContext(), AddPersonActivity.class);
+                final Bundle bundle = new Bundle();
+                bundle.putBinder("person", new ObjectWrapperForBinder(list.get(position)));
+                startActivity(new Intent(v.getContext(), AddPersonActivity.class).putExtras(bundle));
+                Log.i(LOG_TAG, " Clicked on Item " + position);
+            }
+        });
+
         list = new ArrayList(realm.where(Person.class).findAll());
-        ListAdapter customAdapter = new PersonListAdapter(this.getContext(), list);
-        listView.setAdapter(customAdapter);
+        mAdapter = new RecyclerViewPersonAdapter(list);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
 }
